@@ -1,0 +1,33 @@
+# Python virtual environment
+lie_env/
+venv/
+ENV/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Audio samples and datasets (DO NOT PUSH SENSITIVE DATA OR HEAVY AUDIO)
+audio_samples/
+data/
+
+# Machine Learning Models (These are huge and should be generated on the server or use LFS)
+models/
+*.pkl
+*.h5
+*.pt
+
+# Streamlit specific
+.streamlit/
+
+# OS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
