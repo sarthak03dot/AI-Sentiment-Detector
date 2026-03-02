@@ -80,49 +80,74 @@ Deployment:
 
 ---
 
-# 📌 6. Complete Setup Guide (Mac + pyenv)
+# 📌 6. Multi-Platform Setup Guide (Windows & macOS)
 
+### 🛠️ Mandatory Prerequisites (Before you start)
+For both Windows and Mac, you **MUST** install `ffmpeg` for audio processing and Whisper transcription to work.
+
+- **Windows**: 
+  1. Download from [ffmpeg.org](https://ffmpeg.org/download.html).
+  2. Add the `ffmpeg/bin` folder to your System ENV Path.
+- **Mac**: 
+  1. `brew install ffmpeg`
+
+---
+
+## 💻 Windows Setup (Manual or pyenv)
+
+### 1. Clone the repository
 ```bash
-# Install pyenv
-brew install pyenv
-
-# Install dependencies
-brew install openssl readline sqlite3 xz zlib tcl-tk
-
-# Export flags
-export LDFLAGS="-L/opt/homebrew/opt/zlib/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/zlib/include"
-
-# Install Python
-env PYTHON_CONFIGURE_OPTS="--without-tk" pyenv install 3.11.8
-
-# Create project
-mkdir AI-Lie-Detector
+git clone https://github.com/your-username/AI-Lie-Detector.git
 cd AI-Lie-Detector
+```
 
-# Set local python
+### 2. Create and activate a Virtual Environment
+```powershell
+python -m venv lie_env
+.\lie_env\Scripts\activate
+```
+
+### 3. Install dependencies
+```powershell
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+## 🍎 macOS Setup (brew + pyenv)
+
+### 1. Install pyenv and dependencies
+```bash
+brew install pyenv openssl readline sqlite3 xz zlib tcl-tk
+```
+
+### 2. Install Python 3.11.8
+```bash
+env PYTHON_CONFIGURE_OPTS="--without-tk" pyenv install 3.11.8
 pyenv local 3.11.8
+```
 
-# Create virtual environment
+### 3. Create and activate a Virtual Environment
+```bash
 python -m venv lie_env
 source lie_env/bin/activate
+```
 
-# Upgrade pip
+### 4. Install dependencies
+```bash
 pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-# Install project dependencies
-pip install torch
-pip install openai-whisper
-pip install librosa
-pip install scikit-learn
-pip install numpy pandas
-pip install streamlit
-pip install sounddevice
-pip install transformers
-pip install joblib
+---
 
-# Save requirements
-pip freeze > requirements.txt
+## 🚀 7. Running the Application
+
+After activating your virtual environment, run:
+
+```bash
+streamlit run app.py
 ```
 
 ---
